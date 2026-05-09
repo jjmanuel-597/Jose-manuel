@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Encuesta</title>
+</head>
+<body>
+    <h1>Formulario de Encuesta</h1>
+    <form action="#" method="post">
+        <h2>¿Cuál es tu color favorito?</h2>
+        <input type="radio" id="rojo" name="color" value="rojo">
+        <label for="rojo">Rojo</label><br>
+        <input type="radio" id="azul" name="color" value="azul">
+        <label for="azul">Azul</label><br>
+        <input type="radio" id="verde" name="color" value="verde">
+        <label for="verde">Verde</label><br>
+
+        <h2>¿Qué deportes practicas?</h2>
+        <input type="checkbox" id="futbol" name="deporte" value="futbol">
+        <label for="futbol">Fútbol</label><br>
+        <input type="checkbox" id="baloncesto" name="deporte" value="baloncesto">
+        <label for="baloncesto">Baloncesto</label><br>
+        <input type="checkbox" id="tenis" name="deporte" value="tenis">
+        <label for="tenis">Tenis</label><br>
+
+        <h2>Selecciona tu país de residencia:</h2>
+        <select name="pais" id="pais">
+            <option value="">--Selecciona un país--</option>
+            <option value="mexico">México</option>
+            <option value="espana">España</option>
+            <option value="argentina">Argentina</option>
+            <option value="colombia">Colombia</option>
+        </select><br><br>
+
+        <input type="submit" value="Enviar Encuesta">
+    </form>
+</body>
+</html>

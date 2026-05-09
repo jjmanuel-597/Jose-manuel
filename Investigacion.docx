@@ -1,0 +1,132 @@
+Aquí tienes la guía completa solicitada para dominar las bases del desarrollo web.
+------------------------------
+## 🏗️ Parte 1: Las 50 etiquetas HTML más usadas## Estructura y Metadatos
+
+   1. <!DOCTYPE html>: Define que el documento es HTML5.
+   2. <html>: Raíz de todo el documento.
+   3. <head>: Contenedor de metadatos (no visibles).
+   4. <title>: Título de la pestaña del navegador.
+   5. <meta>: Información técnica (charsets, responsive).
+   6. <link>: Enlaza archivos externos (como CSS).
+   7. <script>: Incluye código JavaScript.
+   8. <style>: Define estilos CSS internos.
+
+## Semánticas (Organización)
+
+   1. <header>: Encabezado de la página o sección.
+   2. <nav>: Bloque de enlaces de navegación.
+   3. <main>: Contenido principal y único del documento.
+   4. <section>: Define secciones temáticas.
+   5. <article>: Contenido independiente (ej. un post).
+   6. <aside>: Contenido lateral relacionado.
+   7. <footer>: Pie de página.
+
+## Texto y Contenido
+
+   1. <h1> a <h6>: Títulos jerárquicos.
+   2. <p>: Define un párrafo de texto.
+   3. <div>: Contenedor genérico en bloque.
+   4. <span>: Contenedor genérico en línea.
+   5. <a>: Hipervínculo (usa el atributo href).
+   6. <ul>: Lista desordenada (puntos).
+   7. <ol>: Lista ordenada (números).
+   8. <li>: Elemento individual de una lista.
+   9. <strong>: Texto en negrita (importancia semántica).
+   10. <em>: Texto en cursiva (énfasis).
+   11. <br>: Salto de línea simple.
+   12. <hr>: Línea horizontal temática.
+   13. <blockquote>: Cita textual larga.
+   14. <code>: Fragmento de código de programación.
+   15. <pre>: Texto con formato predefinido.
+
+## Multimedia y Formularios
+
+   1. <img>: Inserta una imagen.
+   2. <video>: Reproduce videos.
+   3. <audio>: Reproduce archivos de audio.
+   4. <iframe>: Inserta otra página web dentro.
+   5. <canvas>: Gráficos dibujables vía JS.
+   6. <form>: Crea un formulario interactivo.
+   7. <input>: Campo de entrada de datos.
+   8. <label>: Etiqueta para un elemento de entrada.
+   9. <button>: Botón ejecutable.
+   10. <textarea>: Campo de texto multilínea.
+   11. <select>: Menú desplegable.
+   12. <option>: Opción dentro de un select.
+
+## Tablas y Otros
+
+   1. <table>: Crea una tabla.
+   2. <thead>: Encabezado de la tabla.
+   3. <tbody>: Cuerpo de la tabla.
+   4. <tr>: Fila de la tabla.
+   5. <td>: Celda de datos de la tabla.
+   6. <th>: Celda de encabezado de la tabla.
+   7. <details>: Widget de contenido desplegable.
+   8. <summary>: Título visible para <details>.
+
+------------------------------
+## 🎨 Parte 2: 20 Propiedades de CSS esenciales## Texto y Tipografía
+
+   1. color: Cambia el color del texto. color: #333;. (Cualquier elemento con texto).
+   2. font-size: Define el tamaño de letra. font-size: 16px;. (Párrafos, títulos).
+   3. font-family: Elige la fuente (tipografía). font-family: Arial;. (Cuerpo/Body).
+   4. text-align: Alinea el texto. text-align: center;. (Bloques de texto).
+   5. line-height: Espacio entre líneas. line-height: 1.5;. (Párrafos).
+
+## Box Model (Modelo de Caja)
+
+   1. background-color: Color de fondo. background-color: blue;. (Divs, secciones).
+   2. width: Ancho de un elemento. width: 100px;. (Imágenes, contenedores).
+   3. height: Altura de un elemento. height: 50vh;. (Secciones).
+   4. margin: Espacio fuera del borde. margin: 20px;. (Separar bloques).
+   5. padding: Espacio dentro del borde. padding: 10px;. (Botones, cajas).
+   6. border: Línea alrededor del elemento. border: 1px solid black;. (Cualquier caja).
+   7. border-radius: Bordes redondeados. border-radius: 8px;. (Botones, fotos).
+   8. box-shadow: Sombra decorativa. box-shadow: 2px 2px 5px grey;. (Tarjetas/Cards).
+
+## Layout (Diseño)
+
+   1. display: Define el comportamiento visual. display: flex;. (Contenedores padre).
+   2. flex-direction: Dirección de elementos flex. flex-direction: column;. (Menús).
+   3. justify-content: Alinea elementos en el eje principal. justify-content: space-between;. (Flexbox).
+   4. grid-template-columns: Define columnas de una cuadrícula. grid-template-columns: 1fr 1fr;. (Layouts complejos).
+   5. position: Método de posicionamiento. position: absolute;. (Cualquier elemento).
+   6. z-index: Orden de capas (profundidad). z-index: 10;. (Elementos superpuestos).
+   7. opacity: Nivel de transparencia. opacity: 0.5;. (Efectos visuales).
+
+------------------------------
+## 🧠 Parte 3: JavaScript y el DOM## ¿Qué representa el DOM?
+El DOM (Document Object Model) es una interfaz de programación que representa el documento HTML como una estructura de árbol. Cada etiqueta, atributo o fragmento de texto es un "nodo" que JavaScript puede leer, modificar o eliminar. Es el puente entre el código estático y la interactividad.
+## ¿Cómo se manipula?
+Se usa JavaScript mediante métodos integrados en el objeto document, tales como:
+
+* document.getElementById(): Para seleccionar un elemento por su ID.
+* document.querySelector(): Para seleccionar usando selectores de CSS.
+* .innerHTML o .textContent: Para cambiar el contenido.
+* .style: Para modificar el CSS directamente.
+
+## 🧪 Ejemplos prácticos
+
+   1. Cambiar el contenido al hacer clic:
+   
+   const boton = document.querySelector('button');
+   boton.addEventListener('click', () => {
+       document.querySelector('h1').textContent = "¡Texto cambiado!";
+   });
+   
+   2. Cambiar el estilo visual:
+   
+   const caja = document.getElementById('miCaja');
+   caja.style.backgroundColor = "red";
+   caja.style.borderRadius = "50%";
+   
+   
+📌 Si quieres profundizar en algún tema:
+
+* ¿Te gustaría ver un ejemplo completo de cómo conectar las tres partes?
+* ¿Necesitas ayuda con algún selector específico de CSS?
+* ¿Quieres aprender a crear elementos nuevos desde JavaScript?
+
+¡Dime cómo prefieres continuar!
+

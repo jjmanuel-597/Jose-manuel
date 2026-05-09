@@ -1,0 +1,23 @@
+body {
+    background-color: black;
+}
+
+p {
+    color: white;
+    font-size: 20px;
+}
+
+h1 {
+    color: white;
+    font-size: 40px;
+    border: 40px solid white;
+    border-radius: 50px;
+}
+h1 {
+text-align: center;
+}
+
+p {
+    text-decoration: underline;
+}
+box-shadow: 10px 10px 5px gray;

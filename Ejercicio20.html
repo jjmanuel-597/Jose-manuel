@@ -1,0 +1,36 @@
+ Maqueta una noticia periodística completa.
+Requerimientos:
+- Envolver todo en <article>.
+- Usar <time> con atributo datetime.
+- Imagen de cabecera con <figure> y <figcaption>.
+- Barra lateral con <aside>.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticia Periodística</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        article {
+            max-width: 800px;
+            margin: auto;
+        }
+        figure {
+            margin: 0;
+        }
+        figcaption {
+            text-align: center;
+            font-size: 0.9em;
+            color: #555;
+        }
+        aside {
+            background-color: #f4f4f4;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
