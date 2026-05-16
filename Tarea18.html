@@ -1,0 +1,36 @@
+ Dale diseño a un formulario, pero solo a los campos donde se escribe texto.
+Requerimientos: Usa el selector input[type="text"].
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Estilo</title>
+    <style>
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="text"]:focus {
+            border-color: #66afe9;
+            outline: none;
+        }
+    </style>
+</html>
+<body>
+    <form>
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" placeholder="Escribe tu nombre...">
+        
+        <label for="email">Correo Electrónico:</label>
+        <input type="text" id="email" name="email" placeholder="Escribe tu correo electrónico...">
+        
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+ Quita el subrayado feo solo de los enlaces que estén dentro del menú de navegación.
+Requerimientos: Usa selector descendente (nav a o ul li a) y text-decoration: none.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea de Prueba</title>
+    <style>
+        nav a {
+            text-decoration: none;
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mi Documento de Prueba</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+    <p>Este es un párrafo normal.</p>
+    <p>Este es otro párrafo normal.</p>
+    <p>Este es un tercer párrafo normal.</p>
+</body>
+</html>

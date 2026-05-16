@@ -1,0 +1,36 @@
+ Distribuye tres elementos horizontalmente con espacio uniforme entre ellos.
+Requerimientos: Aplica display: flex al contenedor y justify-content: space-between.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea de Prueba</title>
+    <style>
+        .contenedor {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .elemento {
+            width: 100px;
+            height: 100px;
+            background-color: #4CAF50;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mi Documento de Prueba</h1>
+    <div class="contenedor">
+        <div class="elemento">Elemento 1</div>
+        <div class="elemento">Elemento 2</div>
+        <div class="elemento">Elemento 3</div>
+    </div>
+</body>
+</html>

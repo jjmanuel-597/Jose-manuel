@@ -1,0 +1,40 @@
+ Mueve un elemento un poco a la derecha sin romper la estructura de los demás.
+Requerimientos: Usa position: relative y ajusta top y left.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea de Prueba</title>
+    <style>
+        .contenedor {
+            display: flex;
+            gap: 20px;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .elemento {
+            width: 100px;
+            height: 100px;
+            background-color: #4CAF50;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+        .elemento-movido {
+            position: relative;
+            left: 20px; /* Mueve el elemento 20px a la derecha */
+        }
+    </style>
+</head>
+<body>
+    <h1>Mi Documento de Prueba</h1>
+    <div class="contenedor">
+        <div class="elemento">Elemento 1</div>
+        <div class="elemento elemento-movido">Elemento 2</div>
+        <div class="elemento">Elemento 3</div>
+    </div>
+</body>
+</html>

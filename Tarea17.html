@@ -1,0 +1,37 @@
+ Crea un menú de navegación que siempre persiga al usuario al hacer scroll.
+Requerimientos: Aplica position: fixed, width: 100% y top: 0.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .content {
+            margin-top: 60px; /* Para evitar que el contenido quede oculto detrás del menú */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav></nav>
+    <div class="content">
+        <h1>Contenido de la Página</h1>
+        <p>Este es un ejemplo de menú fijo que permanece en la parte superior mientras el usuario hace scroll.</p>
+    </div>
+</body>
+</html>

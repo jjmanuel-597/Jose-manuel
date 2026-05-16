@@ -1,0 +1,41 @@
+ Pon una etiqueta de "Oferta" fija en la esquina superior derecha de la tarjeta de un producto.
+Requerimientos: Contenedor con position: relative y etiqueta con position: absolute, top: 0, right: 0.
+<!DOCTYPE html>
+<html lang="es">   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de Producto</title>
+    <style>
+        .tarjeta {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .oferta {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.9em;
+            font-weight: bold;
+            border-bottom-left-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Producto Destacado</h1>
+    <div class="tarjeta">
+        <div class="oferta">Oferta</div>
+        <h2>Producto XYZ</h2>
+        <p>Descripción del producto. Precio: $99.99</p>
+    </div>
+</body>
+</html>
