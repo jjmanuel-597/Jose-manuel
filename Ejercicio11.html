@@ -1,93 +1,35 @@
- Elimina el checkbox feo por defecto y crea el tuyo desde cero.
-Requerimientos: Usa appearance: none y redibuja la vida con pseudoelementos y :checked.
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Checkbox personalizado — appearance:none</title>
-  <style>
-    :root{--size:20px;--accent:#2563eb;--bg:#f7fafc;--text:#0f172a}
-    body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg);font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text)}
-    .card{background:#fff;padding:28px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.06);max-width:720px;width:100%}
-    h1{margin:0 0 12px;font-size:1.25rem}
-    p{margin:0 0 18px;color:#475569}
-
-    /* Contenedor de ejemplo */
-    .row{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-
-    /* Estilo base del input: removemos la apariencia nativa */
-    input[type="checkbox"].fancy{
-      appearance:none;
-      -webkit-appearance:none;
-      width:var(--size);
-      height:var(--size);
-      margin:0; /* remove default spacing */
-      position:relative;
-      vertical-align:middle;
-      outline:none;
-      cursor:pointer;
-    }
-
-    /* Dibujamos la casilla con el label::before para mayor control */
-    /* Estructura: <input id><label for>Label text</label> */
-    input.fancy + label{
-      display:inline-flex;align-items:center;gap:10px;cursor:pointer;user-select:none
-    }
-
-    input.fancy + label::before{
-      content:'';
-      display:inline-block;
-      width:var(--size);height:var(--size);
-      border-radius:6px;
-      box-shadow:inset 0 1px 0 rgba(255,255,255,0.9),0 4px 10px rgba(2,6,23,0.08);
-      background:linear-gradient(180deg,#fff,#f0f4f8);
-      border:1px solid rgba(15,23,42,0.08);
-      transition:background .18s ease,transform .12s ease,border-color .12s;
-      flex:0 0 auto;
-        transform:translateZ(0);
-    }
-
-    /* Pseudo-checkmark: usamos label::after y lo mostramos al :checked */
-    input.fancy + label::after{
-      content:'';
-      position:relative; /* relative to label */
-      display:inline-block;
-      width:var(--size);height:var(--size);
-      margin-left:calc(var(--size) * -1 - 6px); /* overlap the ::before area */
-      pointer-events:none;
-      transform:scale(0) rotate(20deg);
-      transition:transform .18s cubic-bezier(.2,.9,.3,1),opacity .12s;
-      opacity:0;
-    }
-    input.fancy:checked + label::after{
-      transform:scale(1) rotate(20deg);
-      opacity:1;
-      background:var(--accent);
-      clip-path:polygon(14% 44%, 0 65%, 50% 100%, 100% 20%, 86% 0, 43% 54%);
-    }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esqueleto de Blog</title>
 </head>
 <body>
-    <div class="card">
-        <h1>Checkbox personalizado con <code>appearance: none</code></h1>
-        <p>Elimina el checkbox feo por defecto y crea el tuyo desde cero usando pseudoelementos y el selector :checked.</p>
-    
-        <div class="row">
-        <div>
-            <input type="checkbox" id="chk1" class="fancy">
-            <label for="chk1">Opción 1</label>
-        </div>
-        <div>
-            <input type="checkbox" id="chk2" class="fancy">
-            <label for="chk2">Opción 2</label>
-        </div>
-        <div>
-            <input type="checkbox" id="chk3" class="fancy">
-            <label for="chk3">Opción 3</label>
-        </div>
-        </div>
-    </div>
+    <header>
+        <h1>Mi Blog Personal</h1>
+    </header>
 
-    </body>
-</html>
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Sobre mí</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <article>
+            <h2>Primer Post</h2>
+            <p>Este es el contenido de mi primer post en el blog. Aquí compartiré mis pensamientos y experiencias.</p>
+        </article>
+
+        <article>
+            <h2>Segundo Post</h2>
+            <p>Este es el contenido de mi segundo post en el blog. Continuaré compartiendo más información interesante.</p>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mi Blog Personal. Todos los derechos reservados.</p>
+    </footer>

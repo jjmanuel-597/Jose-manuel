@@ -1,71 +1,36 @@
- Cambia el estilo de una tarjeta entera solo si un elemento interno dice "agotado".
-Requerimientos: La revolucionaria pseudoclase relacional :has().
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Ejercicio 12 — Pseudoclase :has()</title>
-    <style>
-        :root{
-        --bg: #ffffff;
-        --text: #111827;
-        --card: #ffffff;
-        --accent: #2563eb;
-        --muted: #6b7280;
-        }
-    
-        @media (prefers-color-scheme: dark){
-        :root{
-            --bg: #0b1220;
-            --text: #e6eef8;
-            --card: #071029;
-            --accent: #60a5fa;
-            --muted: #9ca3af;
-        }
-        }
-    
-        *{box-sizing:border-box}
-        body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;display:flex;align-items:center;justify-content:center;transition:background .25s,color .25s}
-        .grid{width:100%;max-width:900px;padding:32px;display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-        .card{background:var(--card);padding:24px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.08);position:relative}
-        .title{font-size:1.1rem;font-weight:700;margin-bottom:8px}
-        .meta{color:var(--muted);margin-bottom:12px}
-    
-        /* Estilo para tarjetas agotadas usando :has() */
-        .card:has([data-status="agotado"]) {
-        background:#fef2f2;
-        color:#991b1b;
-        border:1px solid #fca5a5;
-        box-shadow:0 10px 28px rgba(250,128,114,
-0.06);
-        }
-        .card:has([data-status="agotado"])::after{
-        content:"AGOTADO";
-        position:absolute;top:12px;right:12px;padding:6px 10px;border-radius:8px;background:#ef4444;color:#fff;font-size:.8rem;font-weight:800;letter-spacing:.6px;
-        box-shadow:0 8px 24px rgba(239,68,68,0.18);
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Organizado</title>
 </head>
 <body>
-    <div class="grid">
-        <div class="card">
-            <div class="title">Producto A</div>
-            <div class="meta">Precio: 19.99€</div>
-            <div class="status" data-status="disponible">disponible</div>
-        </div>
+    <h1>Formulario de Registro</h1>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Información Personal</legend>
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre"><br><br>
 
-        <div class="card">
-            <div class="title">Producto B</div>
-            <div class="meta">Precio: 29.99€</div>
-            <div class="status" data-status="agotado">agotado</div>
-        </div>
+            <label for="email">Correo Electrónico:</label><br>
+            <input type="email" id="email" name="email"><br><br>
 
-        <div class="card">
-            <div class="title">Producto C</div>
-            <div class="meta">Precio: 39.99€</div>
-            <div class="status" data-status="disponible">disponible</div>
-        </div>
-    </div>
-</body>
-</html>
+            <label for="telefono">Teléfono:</label><br>
+            <input type="tel" id="telefono" name="telefono"><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Información de Cuenta</legend>
+            <label for="usuario">Nombre de Usuario:</label><br>
+            <input type="text" id="usuario" name="usuario"><br><br>
+
+            <label for="contrasena">Contraseña:</label><br>
+            <input type="password" id="contrasena" name="contrasena"><br><br>
+
+            <label for="confirmar_contrasena">Confirmar Contraseña:</label><br>
+            <input type="password" id="confirmar_contrasena" name="confirmar_contrasena"><br><br>
+        </fieldset>
+
+        <input type="submit" value="Registrar">
+    </form>
