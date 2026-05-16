@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Superposición con mix-blend-mode</title>
+  <style>
+    :root{--muted:#6b7280}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#f7fafc;color:#0f172a}
+    .wrap{max-width:1100px;margin:36px auto;padding:20px}
+    h1{margin:0 0 8px}
+    p.lead{color:var(--muted);margin:0 0 20px}
+
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+    .card{border-radius:12px;overflow:hidden;position:relative;min-height:320px;display:flex;align-items:center;justify-content:center;color:white}
+
+    /* Ejemplo 1: texto con mix-blend-mode: multiply */
+    .card.multiple{background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=60');background-size:cover;background-position:center}
+    .card.multiple .overlay{position:absolute;inset:0;background:rgba(255,200,120,0.35);mix-blend-mode:multiply}
+    .card.multiple h2{position:relative;font-size:2rem;margin:0 16px}
+    .card.multiple p{position:relative;margin-top:8px;color:rgba(255,255,255,0.95)}
+
+    /* Ejemplo 2: texto con mix-blend-mode: difference */
+    .card.diff{background-image:url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1400&q=60');background-size:cover;background-position:center}
+    .card.diff .overlay{position:absolute;inset:0;background:rgba(10,10,10,0.35);mix-blend-mode:difference}
+    .card.diff h2{position:relative;font-size:2rem;margin:0 16px}
+    .card.diff p{position:relative;margin-top:8px;color:rgba(255,255,255,0.95)}
+
+    /* Contenedor de texto centrado */
+    .content{position:relative;text-align:center;padding:28px 20px;backdrop-filter:blur(2px)}
+
+    /* Notas */
+    .note{grid-column:1/-1;color:var(--muted);font-size:.95rem;margin-top:12px}
+
+    @media(max-width:800px){.grid{grid-template-columns:1fr}.card{min-height:220px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Superposición con mix-blend-mode</h1>
+    <p class="lead">Dos técnicas para lograr contrastes interesantes: <code>mix-blend-mode: multiply</code> y <code>mix-blend-mode: difference</code>.</p>
+
+    <div class="grid">
+      <section class="card multiple">
+        <div class="overlay" aria-hidden="true"></div>
+        <div class="content">
+          <h2>Multiply</h2>
+          <p>La capa coloreada se mezcla con la imagen oscureciéndola y enriqueciéndola.</p>
+        </div>
+      </section>
+
+      <section class="card diff">
+        <div class="overlay" aria-hidden="true"></div>
+        <div class="content">
+          <h2>Difference</h2>
+          <p>El modo <em>difference</em> crea contrastes dramáticos — ideal para títulos llamativos.</p>
+        </div>
+      </section>
+
+      <div class="note">Consejo: prueba distintos colores y opacidades en la capa con <code>mix-blend-mode</code>; algunos modos cambian mucho según la imagen subyacente. En navegadores sin soporte, la capa actúa como una semitransparencia normal.</div>
+    </div>
+  </div>
+</body>
+</html>

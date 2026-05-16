@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Interfaces extruidas — Múltiples sombras</title>
+  <style>
+    :root{
+      --bg:#e9eef7;
+      --surface:#e9eef7; /* same as bg for "extruded" look */
+      --card:#f6f9ff;
+      --accent:#2563eb;
+      --text:#0f172a;
+    }
+
+    body{margin:0;min-height:100vh;background:var(--bg);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;display:flex;align-items:center;justify-content:center;padding:40px;color:var(--text)}
+    .wrap{width:100%;max-width:980px}
+    h1{margin:0 0 18px;font-size:1.4rem}
+    p{margin:0 0 20px;color:#475569}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+
+    /* Extruded card: combina sombras oscuras y claras para levantar del mismo fondo */
+    .extrude{
+      background:var(--surface);
+      border-radius:12px;
+      padding:18px;
+      display:flex;flex-direction:column;gap:12px;align-items:flex-start;
+      /* sombras múltiples: oscura abajo/derecha, clara arriba/izquierda */
+      box-shadow:
+        14px 14px 30px rgba(2,6,23,0.12),
+        -10px -10px 24px rgba(255,255,255,0.85),
+        inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+
+    /* Variante más profunda */
+    .extrude.deep{box-shadow:24px 24px 48px rgba(2,6,23,0.16),-18px -18px 40px rgba(255,255,255,0.9),inset 0 1px 0 rgba(255,255,255,0.7)}
+
+    /* Botón extruido */
+    .btn{
+      background:var(--surface);
+      border-radius:10px;padding:10px 14px;border:0;color:var(--text);cursor:pointer;font-weight:600;
+      box-shadow:8px 8px 16px rgba(2,6,23,0.08),-6px -6px 14px rgba(255,255,255,0.9);
+      transition:transform .12s ease,box-shadow .12s ease;
+    }
+    .btn:active{transform:translateY(2px);box-shadow:inset 6px 6px 10px rgba(2,6,23,0.08),inset -6px -6px 10px rgba(255,255,255,0.9)}
+
+    /* Input extruido */
+    .field{width:100%;padding:10px 12px;border-radius:8px;border:0;background:var(--surface);box-shadow:inset 2px 2px 6px rgba(2,6,23,0.06),inset -2px -2px 6px rgba(255,255,255,0.85)}
+
+    /* Pequeña tarjeta con borde y sombra compuesta */
+    .meta-card{padding:12px;border-radius:10px;background:var(--surface);box-shadow:6px 6px 14px rgba(2,6,23,0.06),-4px -4px 12px rgba(255,255,255,0.9)}
+
+    /* Dark mode friendly: invertir sombras y tonos cuando el sistema está en oscuro */
+    @media (prefers-color-scheme: dark){
+      :root{--bg:#0b1220;--surface:#0f1724;--card:#0b1624;--accent:#60a5fa;--text:#e6eef8}
+      body{background:var(--bg);color:var(--text)}
+      .extrude{box-shadow:14px 14px 30px rgba(0,0,0,0.6),-10px -10px 24px rgba(255,255,255,0.03),inset 0 1px 0 rgba(255,255,255,0.02)}
+      .btn{box-shadow:8px 8px 16px rgba(0,0,0,0.6),-6px -6px 14px rgba(255,255,255,0.03)}
+      .field{box-shadow:inset 2px 2px 6px rgba(0,0,0,0.6),inset -2px -2px 6px rgba(255,255,255,0.02)}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Interfaces extruidas — Elegancia con sombras</h1>
+    <p>Usa múltiples valores en <code>box-shadow</code> (sombras oscuras + luces claras) para que los elementos parezcan salir del mismo fondo.</p>
+
+    <div class="grid">
+      <div class="extrude">
+        <div style="width:100%">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <strong>Perfil</strong>
+            <button class="btn">Seguir</button>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="meta-card" style="width:56px;height:56px;border-radius:10px;display:grid;place-items:center">👤</div>
+            <div>
+              <div style="font-weight:700">Nombre Apellido</div>
+              <div style="color:#64748b;font-size:.9rem">Diseñador • Madrid</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="extrude deep">
+        <strong>Formulario</strong>
+        <input class="field" placeholder="Tu correo" aria-label="Correo">
+        <div style="display:flex;gap:8px;width:100%;justify-content:flex-end">
+          <button class="btn">Cancelar</button>
+          <button class="btn" style="background:var(--accent);color:white;box-shadow:8px 8px 16px rgba(37,99,235,0.18),-6px -6px 14px rgba(96,165,250,0.14)">Enviar</button>
+        </div>
+      </div>
+
+      <div class="extrude">
+        <strong>Tarjeta</strong>
+        <p style="margin:8px 0 0;color:#475569">Pequeña tarjeta informativa con sombras compuestas para dar profundidad.</p>
+      </div>
+
+      <div class="extrude">
+        <strong>Botones</strong>
+        <div style="display:flex;gap:10px;margin-top:8px">
+          <button class="btn">Primario</button>
+          <button class="btn">Secundario</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

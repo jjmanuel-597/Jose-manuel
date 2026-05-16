@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tipografía fluida — clamp() + vw</title>
+  <style>
+    :root{
+      --bg:#fbfdff;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#2563eb;
+    }
+
+    /* Tipografías fluidas usando clamp(min, vw-based, max) */
+    h1{font-size:clamp(2rem, 4.5vw, 4rem);margin:0 0 .5rem}
+    h2{font-size:clamp(1.5rem, 3.2vw, 2.5rem);margin:0 0 .5rem}
+    h3{font-size:clamp(1.25rem, 2.2vw, 1.75rem);margin:0 0 .5rem}
+    p{font-size:clamp(1rem, 1.2vw, 1.125rem);line-height:1.5;color:var(--muted)}
+
+    /* Ejemplo de escala modular para pequeños bloques */
+    .lead{font-size:clamp(1.125rem, 1.6vw, 1.375rem);color:#374151}
+
+    /* Diseño simple */
+    body{margin:0;min-height:100vh;background:var(--bg);font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;display:flex;align-items:center;justify-content:center;padding:40px}
+    .card{width:100%;max-width:980px;background:var(--card);padding:32px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+    .row{display:grid;grid-template-columns:1fr;gap:18px}
+    .demo{background:linear-gradient(180deg,rgba(37,99,235,.04),transparent);padding:18px;border-radius:8px}
+    .meta{font-size:.9rem;color:var(--muted)}
+
+    /* Pequeña ayuda visual: caja responsiva */
+    .viewport-hint{display:flex;gap:8px;align-items:center;justify-content:flex-end;color:var(--muted);font-size:.85rem}
+
+    @media(min-width:900px){.row{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="row">
+      <div>
+        <h1>Tipografía fluida con clamp()</h1>
+        <p class="lead">Las fuentes crecen o se encogen armónicamente según el ancho de la pantalla usando <code>clamp()</code> y unidades <code>vw</code>.</p>
+        <div class="meta">Ejemplos: <code>h1: clamp(2rem, 4.5vw, 4rem)</code> — mínimo 2rem, máximo 4rem, y escala con 4.5vw en el medio.</div>
+      </div>
+
+      <div class="demo">
+        <h2>Encabezado secundario</h2>
+        <h3>Subtítulo que también responde</h3>
+        <p>Texto de ejemplo para mostrar cómo el cuerpo se adapta. Ajusta el ancho de la ventana para ver la diferencia: en pantallas pequeñas la fuente no será demasiado pequeña, y en pantallas grandes queda limitada por el máximo.</p>
+        <div class="viewport-hint">Ancho de ventana: <span id="vw">—</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // UI opcional: mostrar el ancho de la ventana en vw (solo ayuda visual)
+    const el = document.getElementById('vw');
+    function refresh(){ el.textContent = Math.round(window.innerWidth) + 'px'; }
+    refresh(); window.addEventListener('resize', refresh);
+  </script>
+</body>
+</html>

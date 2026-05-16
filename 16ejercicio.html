@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Galería tipo Pinterest — column-count</title>
+  <style>
+    :root{--gap:1rem;--bg:#f6f8fb}
+    body{margin:0;background:var(--bg);font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0f172a}
+    .wrap{max-width:1100px;margin:28px auto;padding:20px}
+    h1{margin:0 0 12px}
+    p.lead{margin:0 0 18px;color:#6b7280}
+
+    /* Masonry-like layout using CSS columns */
+    .masonry{
+      column-count:3;
+      column-gap:var(--gap);
+    }
+
+    /* Each item must avoid being broken between columns */
+    .masonry .item{
+      display:inline-block; /* ensures item respects column width */
+      width:100%;
+      margin:0 0 var(--gap);
+      break-inside:avoid;
+      -webkit-column-break-inside:avoid;
+      page-break-inside:avoid;
+      background:white;border-radius:10px;overflow:hidden;box-shadow:0 8px 20px rgba(2,6,23,0.06);
+    }
+
+    .item img{display:block;width:100%;height:auto}
+    .card-body{padding:12px}
+    .card-title{font-weight:700;margin:0 0 6px}
+    .card-text{margin:0;color:#475569;font-size:.95rem}
+
+    /* Responsive column counts */
+    @media(max-width:980px){.masonry{column-count:2}}
+    @media(max-width:640px){.masonry{column-count:1}}
+
+    /* Small UI: load more button */
+    .controls{display:flex;justify-content:center;margin-top:18px}
+    .btn{background:#111827;color:#fff;padding:10px 14px;border-radius:10px;border:0;cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Galería estilo Masonry (column-count)</h1>
+    <p class="lead">Optimiza el espacio vertical usando columnas CSS y protege los elementos con <code>break-inside: avoid</code>.</p>
+
+    <div class="masonry" id="masonry">
+      <!-- Items con diferentes alturas -->
+      <article class="item">
+        <img src="https://picsum.photos/seed/p1/600/400" alt="Imagen 1">
+        <div class="card-body"><div class="card-title">Paisaje</div><p class="card-text">Descripción breve de la imagen.</p></div>
+      </article>
+
+      <article class="item">
+        <img src="https://picsum.photos/seed/p2/600/900" alt="Imagen 2">
+        <div class="card-body"><div class="card-title">Montaña alta</div><p class="card-text">Texto más largo para generar una tarjeta alta y probar la columna.</p></div>
+      </article>
+
+      <article class="item">
+        <img src="https://picsum.photos/seed/p3/600/500" alt="Imagen 3">
+        <div class="card-body"><div class="card-title">Bosque</div><p class="card-text">Detalle interesante.</p></div>
+      </article>
+
+      <article class="item">
+        <img src="https://picsum.photos/seed/p4/600/700" alt="Imagen 4">
+        <div class="card-body"><div class="card-title">Lago</div><p class="card-text">Otra descripción para la tarjeta.</p></div>
+      </article>
+
+      <article class="item">
+        <img src="https://picsum.photos/seed/p5/600/350" alt="Imagen 5">
+        <div class="card-body"><div class="card-title">Campo</div><p class="card-text">Pequeño pie de foto.</p></div>
+      </article>
+
+      <article class="item">
+        <img src="https://picsum.photos/seed/p6/600/850" alt="Imagen 6">
+        <div class="card-body"><div class="card-title">Cascada</div><p class="card-text">Descripción extensa para forzar altura.</p></div>
+      </article>
+    </div>
+
+    <div class="controls"><button id="more" class="btn">Cargar más</button></div>
+  </div>
+
+  <script>
+    // Pequeño helper para añadir más items al hacer click (simula carga)
+    document.getElementById('more').addEventListener('click', () => {
+      const masonry = document.getElementById('masonry');
+      for(let i=7;i<=10;i++){
+        const art = document.createElement('article');
+        art.className='item';
+        art.innerHTML = `<img src="https://picsum.photos/seed/p${i}/600/${300+((i%3)*200)}" alt="Imagen ${i}"><div class="card-body"><div class="card-title">Imagen ${i}</div><p class="card-text">Contenido dinámico añadido.</p></div>`;
+        masonry.appendChild(art);
+      }
+    });
+  </script>
+</body>
+</html>

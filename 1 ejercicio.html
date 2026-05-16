@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Estructura Grid Responsiva</title>
+	<style>
+		:root{
+			--gap: 1rem;
+			--bg: #f7f7fb;
+			--card: #ffffff;
+			--accent: #2b6cb0;
+			--muted: #6b7280;
+		}
+		*{box-sizing:border-box}
+		html,body{height:100%}
+		body{
+			margin:0;
+			font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+			background:var(--bg);
+			color:#111827;
+			line-height:1.4;
+		}
+
+		/* Contenedor principal con grid-template-areas */
+		.site{
+			min-height:100vh;
+			display:grid;
+			gap:var(--gap);
+			grid-template-columns:1fr;
+			grid-template-areas:
+				"header"
+				"nav"
+				"main"
+				"aside"
+				"footer";
+			padding:var(--gap);
+		}
+
+		header{grid-area:header;background:var(--card);padding:1rem;border-radius:8px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 0 rgba(16,24,40,0.03)}
+		nav{grid-area:nav;background:var(--card);padding:1rem;border-radius:8px;box-shadow:0 1px 0 rgba(16,24,40,0.03)}
+		main{grid-area:main;background:var(--card);padding:1rem;border-radius:8px;box-shadow:0 1px 0 rgba(16,24,40,0.03)}
+		aside{grid-area:aside;background:var(--card);padding:1rem;border-radius:8px;box-shadow:0 1px 0 rgba(16,24,40,0.03)}
+		footer{grid-area:footer;background:transparent;padding:0 1rem 1rem 1rem}
+
+		h1,h2{margin:0}
+
+		/* Navigation list */
+		.nav-list{display:flex;flex-direction:row;gap:0.5rem;flex-wrap:wrap;padding:0;margin:0;list-style:none}
+		.nav-list a{display:inline-block;padding:0.5rem 0.75rem;border-radius:6px;text-decoration:none;color:var(--accent);border:1px solid transparent}
+		.nav-list a:hover{background:rgba(43,108,176,0.06)}
+
+		/* Grid layout for larger screens */
+		@media (min-width:720px){
+			.site{
+				grid-template-columns:220px 1fr 260px;
+				grid-template-areas:
+					"header header header"
+					"nav main aside"
+					"footer footer footer";
+				align-items:start;
+			}
+			nav{align-self:start}
+			header{padding:1rem 1.25rem}
+		}
+
+		/* Layout tweak for very wide screens */
+		@media (min-width:1100px){
+			.site{padding:1.5rem 2rem;gap:1.25rem}
+		}
+
+		/* Mobile-specific: make nav horizontal and compact */
+		@media (max-width:719px){
+			.nav-list{flex-direction:row;overflow:auto}
+			nav{padding:0.6rem;border-radius:8px}
+		}
+
+		/* Small mobile: stack and give touch targets */
+		@media (max-width:400px){
+			.nav-list a{padding:0.6rem 0.9rem}
+		}
+
+		/* Utility */
+		.brand{font-weight:700;color:var(--accent)}
+		.muted{color:var(--muted);font-size:0.95rem}
+
+	</style>
+</head>
+<body>
+
+<div class="site">
+	<header>
+		<div>
+			<div class="brand">Mi Sitio</div>
+			<div class="muted">Estructura con CSS Grid</div>
+		</div>
+		<div class="muted">Contacto</div>
+	</header>
+
+	<nav>
+		<ul class="nav-list" aria-label="Navegación principal">
+			<li><a href="#">Inicio</a></li>
+			<li><a href="#">Servicios</a></li>
+			<li><a href="#">Proyectos</a></li>
+			<li><a href="#">Acerca</a></li>
+			<li><a href="#">Contacto</a></li>
+		</ul>
+	</nav>
+
+	<main>
+		<h1>Contenido principal</h1>
+		<p class="muted">Aquí va el contenido principal de la página. El layout utiliza <strong>grid-template-areas</strong> y se adapta con Media Queries para móviles.</p>
+		<section>
+			<h2>Sección</h2>
+			<p>Ejemplo de párrafo. Aumenta o reduce el ancho de la ventana para ver el comportamiento responsivo.</p>
+		</section>
+	</main>
+
+	<aside>
+		<h2>Aside</h2>
+		<p class="muted">Zona lateral para enlaces, widgets o información secundaria.</p>
+	</aside>
+
+	<footer>
+		<div style="background:var(--card);padding:0.75rem;border-radius:8px;text-align:center;box-shadow:0 1px 0 rgba(16,24,40,0.03)">© 2026 Mi Sitio</div>
+	</footer>
+</div>
+
+</body>
+</html>

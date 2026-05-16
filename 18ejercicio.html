@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Subrayado animado (línea que corre)</title>
+  <style>
+    :root{--accent:#2563eb;--muted:#6b7280}
+    body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f6f8fb;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#0f172a}
+    .wrap{max-width:780px;padding:36px;text-align:center}
+
+    /* Enlace con línea que corre de izquierda a derecha al hover */
+    .underline-link{position:relative;color:var(--accent);text-decoration:none;font-weight:700}
+    .underline-link::after{
+      content:'';position:absolute;left:0;bottom:-6px;height:3px;background:var(--accent);width:0;transition:width .45s cubic-bezier(.2,.9,.3,1);border-radius:2px
+    }
+    .underline-link:hover::after,.underline-link:focus-visible::after{width:100%}
+
+    /* Variante sutil para bloques de texto */
+    .heading{font-size:1.6rem;margin:0 0 18px}
+    .heading .underline-link::after{height:4px;bottom:-10px}
+
+    /* Ejemplo: subrayado bajo palabras individuales */
+    .inline{display:inline-block}
+
+    /* Asegurar accesibilidad: foco visible */
+    .underline-link:focus-visible{outline:2px solid rgba(37,99,235,0.14);outline-offset:6px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1 class="heading">Texto con <a class="underline-link" href="#">subrayado animado</a></h1>
+
+    <p>Prueba el efecto en diferentes elementos: <span class="inline"><a class="underline-link" href="#">enlaces</a></span>, <span class="inline"><a class="underline-link" href="#">palabras</a></span> o encabezados.</p>
+
+    <p style="margin-top:28px;color:var(--muted)">Técnica: se usa <code>::after</code> con <code>width:0</code>, se expande a <code>width:100%</code> en <code>:hover</code> y aplicamos <code>transition</code> para una animación suave.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tooltips con data-tooltip</title>
+  <style>
+    :root{--tip-bg: #111;--tip-color:#fff;--tip-padding:8px 10px;--tip-radius:8px}
+    body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f5f7fa;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    .wrap{width:100%;max-width:880px;padding:40px;text-align:center}
+    .row{display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap}
+
+    /* Elementos que usan data-tooltip: no elementos extra, solo el atributo */
+    [data-tooltip]{position:relative;cursor:help}
+
+    /* usamos ::before para mostrar el contenido del tooltip via attr() */
+    [data-tooltip]::before{
+      content: attr(data-tooltip);
+      position:absolute;
+      left:50%;
+      bottom:calc(100% + 10px);
+      transform:translateX(-50%) translateY(6px);
+      background:var(--tip-bg);
+      color:var(--tip-color);
+      padding:var(--tip-padding);
+      border-radius:var(--tip-radius);
+      white-space:nowrap;
+      font-size:.9rem;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .18s ease,transform .18s ease;
+      z-index:30;
+    }
+
+    /* pequeña flecha creada con ::after */
+    [data-tooltip]::after{
+      content:'';
+      position:absolute;
+      left:50%;
+      bottom:100%;
+      transform:translateX(-50%);
+      border:6px solid transparent;
+      border-top-color:var(--tip-bg);
+      opacity:0;
+      transition:opacity .18s ease;
+      z-index:30;
+    }
+
+    /* mostrar en hover y focus (accesible con teclado) */
+    [data-tooltip]:hover::before,[data-tooltip]:focus::before,[data-tooltip]:focus-visible::before{opacity:1;transform:translateX(-50%) translateY(0)}
+    [data-tooltip]:hover::after,[data-tooltip]:focus::after,[data-tooltip]:focus-visible::after{opacity:1}
+
+    /* ejemplos visuales */
+    .btn{background:#2563eb;color:#fff;padding:10px 14px;border-radius:8px;border:0}
+    .icon{width:44px;height:44px;border-radius:8px;background:#fff;display:inline-grid;place-items:center;box-shadow:0 6px 18px rgba(2,6,23,.06)}
+    p{color:#374151}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1 style="margin:0 0 12px">Tooltips con <code>data-tooltip</code> y <code>::before</code></h1>
+    <p>Sin etiquetas extra: añade <code>data-tooltip="Texto"</code> al elemento y el tooltip aparece al pasar el ratón.</p>
+
+    <div class="row" style="margin-top:18px">
+      <button class="btn" data-tooltip="Enviar mensaje">Enviar</button>
+
+      <div class="icon" data-tooltip="Notificaciones activas" tabindex="0">🔔</div>
+
+      <a href="#" data-tooltip="Ir a configuraciones" style="text-decoration:none;color:#111;padding:10px 12px;border-radius:8px;background:#fff;box-shadow:0 6px 18px rgba(2,6,23,.04)">⚙️ Ajustes</a>
+
+      <span data-tooltip="Fecha de creación: 16/05/2026" tabindex="0" style="background:#fff;padding:10px 12px;border-radius:8px;box-shadow:0 6px 18px rgba(2,6,23,.04)">📅 16 May</span>
+    </div>
+
+  </div>
+</body>
+</html>

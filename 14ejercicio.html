@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Headers con clip-path: polygon()</title>
+  <style>
+    :root{--bg:#f4f7fb;--accent1:#6366f1;--accent2:#06b6d4;--muted:#6b7280}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#0f172a}
+    .wrap{max-width:1100px;margin:32px auto;padding:0 20px}
+    h1{margin:0 0 18px;font-size:1.4rem}
+    p.lead{color:var(--muted);margin:6px 0 24px}
+
+    /* Base para héroes: tamaño, centrado y texto encima */
+    .hero{
+      position:relative;overflow:hidden;border-radius:14px;color:white;padding:48px 32px;display:flex;align-items:center;gap:20px;margin-bottom:28px;min-height:160px
+    }
+    .hero h2{margin:0;font-size:clamp(1.25rem,2.8vw,2rem)}
+    .hero p{margin:6px 0 0;color:rgba(255,255,255,0.9)}
+
+    /* Diagonal cut (slope) */
+    .hero.diagonal{background:linear-gradient(135deg,var(--accent1),#8b5cf6);clip-path:polygon(0 0,100% 0,100% 78%,0 100%)}
+    .hero.diagonal .badge{background:rgba(255,255,255,0.12);padding:6px 10px;border-radius:8px;font-weight:700}
+
+    /* Trapecio invertido */
+    .hero.trapezoid{background:linear-gradient(90deg,#06b6d4,#0ea5a5);clip-path:polygon(6% 0,94% 0,100% 100%,0 100%)}
+
+    /* Muesca (notch) - recorte interior creando una muesca inferior */
+    .hero.notch{background:linear-gradient(135deg,#ff7a7a,#ffb27a);clip-path:polygon(0 0,100% 0,100% 80%,66% 80%,50% 92%,34% 80%,0 80%)}
+
+    /* Chevron (v-shape) */
+    .hero.chevron{background:linear-gradient(135deg,#34d399,#10b981);clip-path:polygon(0 0,100% 0,100% 72%,75% 72%,50% 100%,25% 72%,0 72%)}
+
+    /* Header con imagen y máscara diagonal */
+    .hero.image{background-image:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=60');background-size:cover;background-position:center;clip-path:polygon(0 0,100% 0,100% 84%,0 100%)}
+    .hero.image::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,6,23,0.16),rgba(2,6,23,0.32))}
+
+    /* Soporte webkit para compatibilidad */
+    .hero{ -webkit-clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+    .hero.diagonal{ -webkit-clip-path:polygon(0 0,100% 0,100% 78%,0 100%)}
+    .hero.trapezoid{ -webkit-clip-path:polygon(6% 0,94% 0,100% 100%,0 100%)}
+    .hero.notch{ -webkit-clip-path:polygon(0 0,100% 0,100% 80%,66% 80%,50% 92%,34% 80%,0 80%)}
+    .hero.chevron{ -webkit-clip-path:polygon(0 0,100% 0,100% 72%,75% 72%,50% 100%,25% 72%,0 72%)}
+    .hero.image{ -webkit-clip-path:polygon(0 0,100% 0,100% 84%,0 100%)}
+
+    /* Pequeños extras: icono a la izquierda */
+    .hero .icon{width:72px;height:72px;border-radius:12px;background:rgba(255,255,255,0.18);display:grid;place-items:center;font-size:1.6rem;flex:0 0 auto}
+
+    /* Responsive: menos padding en móvil */
+    @media(max-width:640px){.hero{padding:28px 18px;min-height:120px}.hero .icon{width:56px;height:56px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Headers recortados con <code>clip-path: polygon()</code></h1>
+    <p class="lead">Ejemplos de cortes diagonales y formas creativas aplicando <code>clip-path</code> directamente en los contenedores.</p>
+
+    <section class="hero diagonal">
+      <div class="icon">⭐</div>
+      <div>
+        <h2>Diagonal elegante</h2>
+        <p>Un corte diagonal que da dinamismo al encabezado.</p>
+      </div>
+    </section>
+
+    <section class="hero trapezoid">
+      <div class="icon">🚀</div>
+      <div>
+        <h2>Trapecio llamativo</h2>
+        <p>Perfecto para secciones de llamada a la acción.</p>
+      </div>
+    </section>
+
+    <section class="hero notch">
+      <div class="icon">🎯</div>
+      <div>
+        <h2>Muesca decorativa</h2>
+        <p>Una pequeña muesca inferior para un detalle visual.</p>
+      </div>
+    </section>
+
+    <section class="hero chevron">
+      <div class="icon">✨</div>
+      <div>
+        <h2>Chevron (V)</h2>
+        <p>Forma en V que apunta a contenido siguiente.</p>
+      </div>
+    </section>
+
+    <section class="hero image">
+      <div class="icon">📸</div>
+      <div>
+        <h2>Imagen con máscara diagonal</h2>
+        <p>Combina imagen y clip-path para un héroe moderno.</p>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Índices con CSS counters</title>
+  <style>
+    :root{--muted:#6b7280;--accent:#2563eb}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#f7fafc;color:#0f172a;display:flex;align-items:flex-start;justify-content:center;padding:40px}
+    .wrap{width:100%;max-width:900px}
+    h1{margin:0 0 18px}
+
+    /* Contenedor que inicia el contador de capítulos */
+    .contents{counter-reset:chapter;background:#fff;padding:22px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+
+    /* Cada capítulo incrementa 'chapter' y resetea 'section' */
+    .chapter{counter-increment:chapter;counter-reset:section;margin-bottom:18px;padding-left:12px}
+    .chapter .chapter-title::before{content:counter(chapter) ". ";font-weight:800;color:var(--accent)}
+
+    /* Cada sección incrementa 'section' */
+    .section{counter-increment:section;counter-reset:subsection;margin-left:14px;padding-left:8px;margin-top:8px}
+    /* usamos counters() para componer el índice del capítulo (podría crecer con más niveles) */
+    .section .section-title::before{content:counters(chapter, ".") "." counter(section) " ";font-weight:700}
+
+    /* Sub-secciones (nivel 3) */
+    .subsection{counter-increment:subsection;margin-left:14px;padding-left:8px;margin-top:6px}
+    .subsection::before{content:counters(chapter, ".") "." counters(section, ".") "." counter(subsection) " ";color:var(--muted);font-size:.95em;margin-right:6px}
+
+    /* Mostrar índices antes de los títulos: alineación */
+    .chapter-title,.section-title{display:inline-block}
+    .section .section-title::before,.chapter .chapter-title::before{margin-right:6px}
+
+    /* Estilos visuales */
+    .title{font-weight:800}
+    p{margin:.25rem 0;color:var(--muted)}
+
+    .note{margin-top:12px;color:var(--muted);font-size:.95rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Índices automáticos con CSS Counters</h1>
+    <div class="contents">
+      <div class="chapter">
+        <div class="chapter-title title">Introducción</div>
+        <div class="section">
+          <div class="section-title">¿Qué es counter-reset?</div>
+          <p>Ejemplo de sección con índice generado automáticamente.</p>
+          <div class="subsection">Detalle A</div>
+          <div class="subsection">Detalle B</div>
+        </div>
+        <div class="section">
+          <div class="section-title">Uso de counter-increment</div>
+          <p>Incrementamos contadores sin usar &lt;ol&gt; ni listas.</p>
+        </div>
+      </div>
+
+      <div class="chapter">
+        <div class="chapter-title title">Implementación</div>
+        <div class="section">
+          <div class="section-title">Componer índices con counters()</div>
+          <p>La función <code>counters(name, ".")</code> concatena los valores del contador desde los ancestros separados por ".".</p>
+          <div class="subsection">Ejemplo práctico</div>
+        </div>
+        <div class="section">
+          <div class="section-title">Limitaciones</div>
+          <p>Compatible con navegadores modernos; en entornos antiguos es posible mostrar números estáticos.</p>
+        </div>
+      </div>
+
+      <div class="note">Nota: esto genera índices como <strong>1.1</strong> y <strong>2.1.1</strong> sin usar &lt;ol&gt;; ajusta los estilos para ubicarlos donde prefieras.</div>
+    </div>
+  </div>
+</body>
+</html>

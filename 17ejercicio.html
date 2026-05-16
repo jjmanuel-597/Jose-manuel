@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Componente que cambia según su contenedor (@container)</title>
+  <style>
+    :root{--muted:#6b7280;--accent:#6366f1}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#f7f9fc;color:#0f172a;display:flex;align-items:flex-start;justify-content:center;padding:36px}
+    .wrap{max-width:1100px;width:100%;display:flex;gap:20px;align-items:flex-start}
+
+    /* Cada .box actúa como contenedor para la demo: ACTIVA container-type aquí */
+    .box{background:#fff;padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.06);flex:1}
+    .box.small{width:300px}
+    .box.large{width:520px}
+
+    /* Importante: convertimos .box en un Container Query container */
+    .box{container-type: inline-size; /* permite @container basados en el ancho del contenedor */}
+
+    /* El componente 'shape-card' se adapta según el contenedor en el que está */
+    .shape-card{display:flex;gap:14px;align-items:center}
+    .shape{width:84px;height:84px;background:linear-gradient(135deg,var(--accent),#8b5cf6);border-radius:12px;box-shadow:0 10px 24px rgba(99,102,241,0.16);flex:0 0 auto;transition:all .28s cubic-bezier(.2,.9,.3,1)}
+    .meta{flex:1}
+    .meta h3{margin:0 0 6px;font-size:1.1rem}
+    .meta p{margin:0;color:var(--muted)}
+
+    /* Comportamiento por defecto (contenedor estrecho): forma cuadrada pequeña */
+    /* Ahora definimos reglas de container query que afectan solo cuando el CONTENEDOR alcanza ciertos anchos */
+    @container (min-width:420px) {
+      /* cuando el contenedor es lo bastante ancho, el componente crece y la forma se redondea */
+      .shape{width:110px;height:110px;border-radius:999px;transform:scale(1.05)}
+      .meta h3{font-size:1.2rem}
+    }
+
+    @container (min-width:640px) {
+      /* contenedor todavía más ancho: la tarjeta reestructura a layout horizontal más espacioso */
+      .shape-card{gap:20px}
+      .shape{width:140px;height:140px;box-shadow:0 18px 40px rgba(99,102,241,0.18)}
+      .meta h3{font-size:1.3rem}
+      .meta p{font-size:1rem}
+    }
+
+    /* Ejemplo inverso: cuando el contenedor es muy angosto, cambiamos el color y la forma */
+    @container (max-width:319px) {
+      .shape{background:linear-gradient(135deg,#f97316,#f43f5e);border-radius:6px;transform:scale(.92)}
+    }
+
+    /* Pequeños estilos para demostración */
+    .title{margin:0 0 10px}
+    .hint{margin-top:12px;color:var(--muted);font-size:.95rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="box small">
+      <h2 class="title">Contenedor pequeño (300px)</h2>
+      <div class="shape-card">
+        <div class="shape" aria-hidden="true"></div>
+        <div class="meta">
+          <h3>Componente adaptable</h3>
+          <p>Este componente ajusta su tamaño y forma según el ancho del contenedor (no de la pantalla).</p>
+        </div>
+      </div>
+      <div class="hint">Observa cómo la forma es más compacta aquí.</div>
+    </div>
+
+    <div class="box large">
+      <h2 class="title">Contenedor grande (520px)</h2>
+      <div class="shape-card">
+        <div class="shape" aria-hidden="true"></div>
+        <div class="meta">
+          <h3>Componente adaptable</h3>
+          <p>Dentro de un contenedor más ancho la forma se vuelve circular y el layout gana tamaño.</p>
+        </div>
+      </div>
+      <div class="hint">Este diseño reacciona al propio contenedor gracias a <code>container-type</code> y <code>@container</code>.</div>
+    </div>
+  </div>
+</body>
+</html>

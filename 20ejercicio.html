@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Modal sin JS — :target</title>
+  <style>
+    :root{--overlay:rgba(2,6,23,0.6);--card-bg:#fff;--accent:#2563eb}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#f6f8fb;color:#0f172a}
+    .wrap{max-width:900px;margin:48px auto;padding:20px;text-align:center}
+
+    /* Trigger */
+    .open-btn{background:var(--accent);color:#fff;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700}
+
+    /* Modal overlay and panel hidden by default */
+    .modal-overlay{position:fixed;inset:0;display:grid;place-items:center;padding:24px;background:var(--overlay);opacity:0;pointer-events:none;transition:opacity .28s ease;z-index:999}
+    .modal-panel{background:var(--card-bg);width:min(720px,100%);max-height:90vh;overflow:auto;border-radius:12px;padding:20px;box-shadow:0 20px 50px rgba(2,6,23,0.3);transform:translateY(8px);transition:transform .28s cubic-bezier(.2,.9,.3,1)}
+
+    /* When targeted, show overlay */
+    .modal-overlay:target{opacity:1;pointer-events:auto}
+    .modal-overlay:target .modal-panel{transform:translateY(0)}
+
+    /* Close button */
+    .close{position:absolute;right:18px;top:18px;background:transparent;border:0;color:#374151;font-weight:700;text-decoration:none}
+
+    /* Small helper to avoid the overlay stealing focus: invisible focus ring on panel */
+    .modal-panel:focus{outline:2px solid rgba(37,99,235,0.18);outline-offset:4px}
+
+    /* Responsive */
+    @media(max-width:480px){.modal-panel{padding:16px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Modal sin JavaScript</h1>
+    <p>Abre el modal usando un enlace que apunta a su ID; la pseudoclase <code>:target</code> controla la visibilidad.</p>
+
+    <p><a class="open-btn" href="#modal">Abrir modal</a></p>
+  </div>
+
+  <!-- Modal: el ID permite abrirlo via #modal -->
+  <div id="modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-panel" tabindex="-1">
+      <a class="close" href="#">✕</a>
+      <h2 id="modal-title">Título del modal</h2>
+      <p>Este modal no usa JavaScript. Se abre con <code>#modal</code> y se cierra volviendo a un ancla diferente (aquí usamos <code>#</code> para volver arriba).</p>
+      <p>Puedes meter cualquier contenido aquí: formularios, imágenes, texto largo. El panel es desplazable si el contenido excede la altura de la ventana.</p>
+      <p style="margin-top:18px"><a class="open-btn" href="#">Cerrar</a></p>
+    </div>
+  </div>
+</body>
+</html>

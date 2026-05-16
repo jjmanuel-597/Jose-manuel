@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Carrusel con Scroll Snap</title>
+	<style>
+		:root{--gap:16px}
+		body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#fafafa;font-family:Arial,Helvetica,sans-serif}
+		.wrap{width:100%;max-width:980px;padding:32px;box-sizing:border-box}
+		h1{font-size:1.1rem;margin:0 0 16px;color:#333;text-align:center}
+		.carousel{display:flex;gap:var(--gap);overflow-x:auto;padding:16px 8px;scroll-snap-type:x mandatory;scroll-padding:50px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+		.carousel::-webkit-scrollbar{height:10px}
+		.carousel__item{flex:0 0 80%;max-width:720px;border-radius:10px;overflow:hidden;background:#ddd;box-shadow:0 6px 18px rgba(0,0,0,.12);scroll-snap-align:center}
+		.carousel__item img{width:100%;height:auto;display:block}
+		.controls{display:flex;justify-content:center;margin-top:12px;gap:8px}
+		.note{font-size:.9rem;color:#555;text-align:center;margin-top:8px}
+		@media(min-width:900px){.carousel__item{flex:0 0 60%}}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<h1>Carrusel horizontal — suelta para centrar la imagen</h1>
+		<div class="carousel" aria-label="Carrusel de imágenes">
+			<div class="carousel__item"><img src="https://picsum.photos/seed/101/900/600" alt="Imagen 1"></div>
+			<div class="carousel__item"><img src="https://picsum.photos/seed/102/900/600" alt="Imagen 2"></div>
+			<div class="carousel__item"><img src="https://picsum.photos/seed/103/900/600" alt="Imagen 3"></div>
+			<div class="carousel__item"><img src="https://picsum.photos/seed/104/900/600" alt="Imagen 4"></div>
+			<div class="carousel__item"><img src="https://picsum.photos/seed/105/900/600" alt="Imagen 5"></div>
+		</div>
+		<div class="note">Desplaza horizontalmente y suelta: cada elemento se alinea al centro gracias a <code>scroll-snap</code>.</div>
+	</div>
+</body>
+</html>
+

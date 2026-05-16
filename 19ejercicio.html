@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Menú sticky — se clava al hacer scroll</title>
+  <style>
+    :root{--bg:#f6f8fb;--nav:#ffffff;--accent:#2563eb}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#0f172a}
+    /* Menú sticky */
+    .nav{
+      position:sticky;top:0;z-index:9999;
+      background:var(--nav);display:flex;align-items:center;gap:20px;padding:14px 20px;border-bottom:1px solid rgba(15,23,42,0.06);
+      box-shadow:0 4px 16px rgba(2,6,23,0.03);
+    }
+    .nav .brand{font-weight:800;color:var(--accent)}
+    .nav a{color:#0f172a;text-decoration:none;padding:8px 10px;border-radius:8px}
+    .nav a:hover{background:rgba(37,99,235,0.06)}
+
+    /* Demo content */
+    main{max-width:980px;margin:24px auto;padding:0 20px}
+    section{background:white;border-radius:10px;padding:28px;margin-bottom:18px;box-shadow:0 10px 30px rgba(2,6,23,0.05)}
+    section h2{margin:0 0 12px}
+    section p{margin:0;color:#475569}
+
+    /* Espacio para que el sticky no tape contenido al navegar por anclas */
+    .anchor{display:block;padding-top:76px;margin-top:-76px}
+
+    @media(max-width:640px){.nav{padding:10px}.nav a{padding:6px 8px}}
+  </style>
+</head>
+<body>
+  <header class="nav" role="navigation" aria-label="Menú principal">
+    <div class="brand">Mi Sitio</div>
+    <nav style="display:flex;gap:6px;margin-left:12px">
+      <a href="#sec1">Inicio</a>
+      <a href="#sec2">Servicios</a>
+      <a href="#sec3">Proyectos</a>
+      <a href="#sec4">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="sec1">
+      <span class="anchor" id="start"></span>
+      <h2>Bienvenido</h2>
+      <p>Contenido inicial. Desplázate hacia abajo para ver cómo el menú se mantiene en la parte superior.</p>
+    </section>
+
+    <section id="sec2">
+      <span class="anchor" id="services"></span>
+      <h2>Servicios</h2>
+      <p>Sección con más contenido de ejemplo.</p>
+      <p style="margin-top:12px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel urna a tortor convallis ultricies. Sed non scelerisque orci.</p>
+    </section>
+
+    <section id="sec3">
+      <span class="anchor" id="projects"></span>
+      <h2>Proyectos</h2>
+      <p>Galería y proyectos destacados.</p>
+      <div style="height:600px;margin-top:12px;background:linear-gradient(180deg,#fff,#f3f6fb);border-radius:8px"></div>
+    </section>
+
+    <section id="sec4">
+      <span class="anchor" id="contact"></span>
+      <h2>Contacto</h2>
+      <p>Puedes añadir un formulario aquí. El menú seguirá visible en la parte superior mientras haces scroll.</p>
+    </section>
+  </main>
+</body>
+</html>
