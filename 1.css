@@ -1,0 +1,16 @@
+#Titulo-Principal {
+    color:(#0056b3);
+    
+}
+
+.parrafo {
+    color: #333333;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.p {
+    color: #007bff;
+    font-size: 18px;
+    font-weight: bold;
+}
