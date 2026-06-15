@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<ul class="menu-principal">
+    <li class="dropdown-item">
+        <a href="#">Servicios ▾</a>
+        <ul class="submenu">
+            <li><a href="#">Diseño Web</a></li>
+            <li><a href="#">SEO</a></li>
+            <li><a href="#">Marketing</a></li>
+        </ul>
+    </li>
+</ul>
+<body>
+    <style>
+        .menu-principal {
+    list-style: none;
+    font-family: sans-serif;
+    padding: 20px;
+}
+.dropdown-item {
+    position: relative;
+    display: inline-block;
+}
+/* Submenú oculto por defecto */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    list-style: none;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+/* Se muestra al hacer hover en el padre */
+.dropdown-item:hover .submenu {
+    display: block;
+}
+    </style>
+
+</body>
+</html>

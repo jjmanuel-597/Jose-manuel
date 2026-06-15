@@ -1,18 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <nav id="menu-principal">
-        <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Servicios</a></li>
-            <li><a href="#">Contacto</a></li>
-        </ul>
-    </nav>
-</body>
-</html>
+<div class="galeria">
+    <a href="https://unsplash.com" target="_blank"><img src="https://picsum.photos/200/150?random=1" alt="Imagen 1"></a>
+    <a href="https://unsplash.com" target="_blank"><img src="https://picsum.photos/200/150?random=2" alt="Imagen 2"></a>
+    <a href="https://unsplash.com" target="_blank"><img src="https://picsum.photos/200/150?random=3" alt="Imagen 3"></a>
+    <style>
+        .galeria {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+}
+.galeria img {
+    width: 200px;
+    height: 150px;
+    transition: opacity 0.3s ease;
+}
+/* Efecto hover */
+.galeria img:hover {
+    opacity: 0.6;
+}
+    </style>
+</div>

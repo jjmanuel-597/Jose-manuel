@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div class="pantalla">
+    <h1>Tema Adaptable Nivel Sistema</h1>
+    <p>Este fondo y texto cambian de color automáticamente según las preferencias de tu sistema operativo o navegador.</p>
+</div>
+<body>
+    <style>
+        /* Variables por defecto (Tema Claro) */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #2c3e50;
+}
+
+/* Detección automática del Modo Oscuro del sistema */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #1e1e1e;
+        --text-color: #f5f6fa;
+    }
+}
+
+/* Aplicación de las variables */
+.pantalla {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 40px;
+    font-family: sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 200px;
+}
+    </style>
+</body>
+</html>

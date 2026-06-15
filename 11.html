@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<form class="form-feedback">
+    <input type="text" placeholder="Nombre de usuario" required>
+    <input type="email" placeholder="Correo electrónico" required>
+    <button type="submit" disabled>Enviar (Incompleto)</button>
+</form>
+<body>
+    <style>
+        .form-feedback {
+    max-width: 300px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.form-feedback input {
+    padding: 10px;
+    border: 2px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s;
+}
+/* Efecto Focus al hacer click */
+.form-feedback input:focus {
+    border-color: #9b59b6;
+}
+/* Estilo para botón deshabilitado */
+.form-feedback button:disabled {
+    background-color: #bdc3c7;
+    color: #7f8c8d;
+    cursor: not-allowed; /* Cursor de prohibido */
+    border: none;
+    padding: 10px;
+}
+    </style>
+
+</body>
+</html>

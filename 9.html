@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div class="contenedor-producto">
+    <img src="https://picsum.photos/300/200" alt="Producto">
+    <span class="badge-nuevo">¡Nuevo!</span>
+</div>
+<body>
+<style>
+    .contenedor-producto {
+    position: relative; /* Contenedor padre relativo */
+    width: 300px;
+    display: inline-block;
+    margin: 20px;
+}
+.contenedor-producto img {
+    width: 100%;
+    display: block;
+}
+.badge-nuevo {
+    position: absolute; /* Posicionamiento absoluto respecto al padre */
+    top: 10px;
+    right: 10px;
+    background-color: #e67e22;
+    color: white;
+    padding: 5px 10px;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px;
+}
+</style>
+
+</body>
+</html>

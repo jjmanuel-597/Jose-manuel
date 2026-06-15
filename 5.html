@@ -1,0 +1,41 @@
+<form class="form-contacto">
+    <label for="nombre">Nombre Completo</label>
+    <input type="text" id="nombre" placeholder="Escribe tu nombre">
+
+    <label for="mensaje">Mensaje</label>
+    <textarea id="mensaje" rows="4" placeholder="¿En qué te puedo ayudar?"></textarea>
+
+    <button type="submit">Enviar</button>
+<style>
+    .form-contacto {
+    max-width: 400px;
+    margin: 20px;
+    font-family: sans-serif;
+}
+.form-contacto label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-contacto input,
+.form-contacto textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px; /* Margen inferior requerido */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Evita que el padding rompa el 100% */
+}
+.form-contacto button {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.form-contacto button:hover {
+    background-color: #2ecc71;
+}
+</style>
+</form>
