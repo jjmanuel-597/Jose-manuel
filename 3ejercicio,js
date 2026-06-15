@@ -1,0 +1,32 @@
+/*
+Enunciado: Dada una variable del 1 al 7, imprime el día de la semana correspondiente.
+Requerimientos: Usa EXCLUSIVAMENTE un bloque switch con sus case, break y default.
+*/
+let dia = 1; // Cambia este valor entre 1 y 7 para probar
+
+switch (dia) {
+	case 1:
+		console.log("Lunes");
+		break;
+	case 2:
+		console.log("Martes");
+		break;
+	case 3:
+		console.log("Miércoles");
+		break;
+	case 4:
+		console.log("Jueves");
+		break;
+	case 5:
+		console.log("Viernes");
+		break;
+	case 6:
+		console.log("Sábado");
+		break;
+	case 7:
+		console.log("Domingo");
+		break;
+	default:
+		console.log("Valor inválido: debe ser un número entre 1 y 7.");
+}
+
