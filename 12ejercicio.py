@@ -2,8 +2,8 @@
 Requerimientos: Usa un bucle for y el operador bitwise de desplazamiento a la izquierda <<."""
 
 def multiplicar_por_dos_y_cuatro(numero):
-    resultado_dos = numero << 1  # Multiplica por 2 desplazando a la izquierda 1 bit
-    resultado_cuatro = numero << 2  # Multiplica por 4 desplazando a la izquierda 2 bits
+    resultado_dos = numero << 1  
+    resultado_cuatro = numero << 2  
     return resultado_dos, resultado_cuatro
 
 numero = 5
