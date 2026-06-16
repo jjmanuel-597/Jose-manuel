@@ -19,10 +19,9 @@ class CuentaBancaria:
         else:
             self.saldo -= cantidad
             print(f"Retiro exitoso. Nuevo saldo: {self.saldo}")
-# Ejemplo de uso
 cuenta = CuentaBancaria("Juan Pérez", 1000)
-cuenta.depositar(500)  # Depósito exitoso. Nuevo saldo: 1500
-cuenta.retirar(200)    # Retiro exitoso. Nuevo saldo: 1300
-cuenta.retirar(1500)   # Fondos insuficientes. No se puede retirar esa cantidad.
-cuenta.retirar(-100)   # La cantidad a retirar debe ser mayor que cero
-cuenta.depositar(-50)  # La cantidad a depositar debe ser mayor que cero.
+cuenta.depositar(500) 
+cuenta.retirar(200)    
+cuenta.retirar(1500)   
+cuenta.retirar(-100)   
+cuenta.depositar(-50)  
