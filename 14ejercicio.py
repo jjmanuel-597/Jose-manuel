@@ -6,9 +6,9 @@ def fibonacci(n):
     a, b = 0, 1
     while len(serie) < n:
         serie.append(a)
-        a, b = b, a + b  # Asignación múltiple para generar la serie
+        a, b = b, a + b  
     return serie
-# Ejemplo de uso
+
 n = 10
 resultado = fibonacci(n)
-print(resultado)  # [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+print(resultado)  
